@@ -1,0 +1,21 @@
+class P:
+    def __init__(self, x):
+        self.__x = x
+
+    @property
+    def x(self):
+        return self.__x
+
+    @x.setter
+    def x(self, x):
+        if x < 0:
+            self.__x = 0
+        elif x > 1000:
+            self.__x = 1000
+        else:
+            self.__x = x
+
+p = P(42)
+print(p.x)
+p.x = -12
+print(p.x)
