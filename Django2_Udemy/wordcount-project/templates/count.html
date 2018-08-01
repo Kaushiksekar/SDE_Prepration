@@ -1,0 +1,7 @@
+<h1>Your text is : {{ fulltext}} </h1>
+
+<h1> Total number of words : {{ count }} </h1>
+
+{% for word, count in frequency.items %}
+  {{word}} - {{count}} <br/>
+{% endfor %}
