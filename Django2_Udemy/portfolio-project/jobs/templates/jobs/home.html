@@ -1,6 +1,7 @@
 
 <!doctype html>
 <html lang="en">
+{% load staticfiles %}
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,15 +20,15 @@
 
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Kaushik Sekar</a>
+    <a class="navbar-brand" href="{% url 'home' %}">Kaushik Sekar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav ml-auto">
-        <a class="nav-item nav-link" href="#">Twitter</a>
-        <a class="nav-item nav-link" href="#">Resume</a>
-        <a class="nav-item nav-link" href="blog">Blog</a>
+        <a class="nav-item nav-link" href="https://www.linkedin.com/in/kaushik-sekar-520259a4/">Linkedin</a>
+        <a class="nav-item nav-link" href="{% static 'Kaushik_Resume_Python_Developer.pdf' %}">Resume</a>
+        <a class="nav-item nav-link" href="{% url 'all_blogs' %}">Blog</a>
       </div>
     </div>
   </nav>
