@@ -58,6 +58,7 @@ db.sqlite3
 settings.py
 *.cnf
 migrations
+media
 
 # Flask stuff:
 instance/
