@@ -60,6 +60,7 @@ settings.py
 migrations
 media
 open-iconic
+admin
 
 # Flask stuff:
 instance/
