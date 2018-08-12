@@ -59,6 +59,7 @@ settings.py
 *.cnf
 migrations
 media
+open-iconic
 
 # Flask stuff:
 instance/
