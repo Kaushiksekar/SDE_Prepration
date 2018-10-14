@@ -1,0 +1,53 @@
+select * from film;
+
+select * from payment;
+
+select description from film where title='Outlaw Hanky';
+
+select distinct rental_rate from film;
+
+select count(distinct rental_rate) from film;
+
+select distinct rating from film;
+
+select * from customer;
+
+select * from address;
+
+select phone from address where address='259 Ipoh Driver';
+
+select first_name, last_name from customer where last_name='Ryan';
+
+select email from customer where first_name='Nancy' and last_name='Thomas';
+
+select * from language;
+
+select first_name, last_name from actor;
+
+select first_name, last_name, email from customer;
+
+select * from customer limit 10;
+
+select * from customer order by first_name;
+
+select * from customer order by first_name desc;
+
+select * from customer order by first_name asc, last_name desc;
+
+SELECT * from payment order by amount desc limit 10;
+
+select title from film order by film_id limit 5;
+
+select count(amount) from payment where amount > 5;
+
+select * from actor;
+
+select count(*) from actor where first_name ilike 'P%';
+
+select count(distinct(district)) from address;
+					  
+select distinct(district) from address;
+					  
+select count(*) from film where rating='R' and replacement_cost between 5 and 15;
+					  
+select count(*) from film where title ilike '%truman%'; 

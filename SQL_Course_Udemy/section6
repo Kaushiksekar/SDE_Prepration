@@ -1,0 +1,51 @@
+select * from payment order by amount limit 10;
+
+select amount from payment where customer_id = 184;
+
+select round(avg(amount), 2) from payment;
+
+select min(amount) from payment;
+
+select max(amount) from payment;
+
+select sum(amount) from payment;
+
+select customer_id from payment group by customer_id;
+
+select customer_id, sum(amount) from payment group by customer_id;
+
+select customer_id, sum(amount) from payment group by customer_id order by sum(amount) desc;
+
+select staff_id, count(rental_id) from payment group by staff_id order by count(rental_id) desc;
+
+select rating, count(*) from film group by rating order by count desc;
+
+select rental_duration, count(*) from film group by rental_duration order by rental_duration desc;
+
+select rating, round(avg(rental_rate), 2) from film group by rating;
+
+select * from film limit 1;
+
+select staff_id, count(rental_id), sum(amount) from payment group by staff_id order by count(rental_id) desc, sum(amount) desc;
+
+select rating, round(avg(replacement_cost), 2) from film group by rating order by round(avg(replacement_cost), 2) desc;
+
+select customer_id, sum(amount) from payment group by customer_id order by sum(amount) desc limit 5;
+
+select customer_id, sum(amount) from payment group by customer_id having sum(amount) > 200;
+
+select customer_id, sum(amount) from payment where customer_id > 200 group by customer_id;
+
+select store_id, count(customer_id) from customer group by store_id having count(customer_id) > 300;
+
+select store_id, count(customer_id) from customer group by store_id having store_id = 2;
+
+select store_id, count(customer_id) from customer where store_id = 2 group by store_id;
+
+select rating, round(avg(rental_rate), 2) from film where rating in ('R', 'G', 'PG') group by rating having round(avg(rental_rate), 2) < 3;
+-- where is before group by and having is after
+
+select customer_id, count(*) from payment group by customer_id having count(*) >= 40 order by count(*) desc;
+
+select rating, round(avg(rental_duration), 2) from film group by rating having round(avg(rental_duration), 2) > 5;
+
