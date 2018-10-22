@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import unittest
+import time
 
 # browser = webdriver.Firefox(executable_path=r'/Users/kaushiksekar/Documents/Knowledge/Selenium/drivers/geckodriver_mac')
 # browser.get("http://localhost:8000")
@@ -28,7 +29,9 @@ class NewVisitorTest(unittest.TestCase):
 
         table = self.browser.find_element_by_id('id_list_table')
         rows = table.find_elements_by_tag_name("tr")
-        self.assertTrue(any(row.text=='1: Buy peacock feathers' for row in rows), "New to-do item did not appear in the table")
+        # self.assertTrue(any(row.text=='1: Buy peacock feathers' for row in rows), "New to-do item did not appear in the table -- it's text was :\n%s"%(table.text))
+        self.assertIn('1: Buy peacock feathers', [row.text for row in rows])
+        self.assertIn('2: Use peacock feathers to make a fly', [row.text for row in rows])
 
         self.fail('Finish the test!')
 
