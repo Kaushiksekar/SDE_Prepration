@@ -1,11 +1,17 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.mail import send_mail
+from taggit.models import Tag
 from .models import Post, Comment
 from .forms import EmailPostForm, CommentForm
 
-def post_list(request):
+def post_list(request, tag_slug=None):
     posts = Post.published.all()
-    return render(request, 'blog/post/list.html', {'posts': posts})
+    tag = None
+
+    if tag_slug:
+        tag = get_object_or_404(Tag, slug=tag_slug)
+        object_list = object_list.filter(tags__in=[tag])
+    return render(request, 'blog/post/list.html', {'posts': posts, 'tag': tag})
 
 def post_detail(request, year, month, day, post):
     post = get_object_or_404(Post, slug=post, status='published', publish__year=year, publish__month=month, publish__day=day)
